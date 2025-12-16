@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life to Save VR - 作品詳細</title>
+    
+    <link rel="stylesheet" href="https://kawakami240743.github.io/Portfolio/css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">KAWAKAMIPORTFOLIO</div>
+        <ul class="nav-links">
+            <li><a href="index.html#hero">ホーム</a></li>
+            <li><a href="index.html#about">私について</a></li>
+            <li><a href="index.html#projects">作品一覧へ戻る</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="project-detail section">
+            <header class="project-header animate-on-scroll">
+                <h1 class="highlight">Life to Save</h1>
+                <p>災害現場に降り立ち、迫る危険から人々を救い出すVRレスキューアクションです</p>
+                <div class="tags">
+                    <span>Unity</span><span>C#</span><span>MetaQuest</span>
+                </div>
+            </header>
+
+            <div class="project-content">
+                <!-- メイン動画埋め込み -->
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/D8BrPmCxKjA" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        title="Life to Save プロモーション動画">
+                    </iframe>
+                </div>
+
+                <div class="project-description">
+                    <h2>概要と目的</h2>
+                    <p>
+                        本プロジェクトは、災害現場で人々を救助する体験をVRで再現することを目的としたアクションゲームです。
+                        崩落する建物や暴走する車両など危険の迫る状況の中で、プレイヤーはVRならではの直感的な操作で被災者の探索・救助を行います。
+                        没入感のある体験と緊迫した救助アクションを通じて、VRならではの表現力とインタラクションを探求することを目的としています。
+                    </p>
+
+                    <h2>主な役割と技術</h2>
+                    <ul>
+                        <li><strong>ゲームプレイプログラミング</strong>: Meta Quest 公式 SDK を用いて VR での掴み・移動操作などのインタラクションを実装し、災害現場での救助アクションに必要なシステムを構築。</li>              
+                        <li><strong>開発環境</strong>: Meta Quest 公式 SDK と Unity の VR 機能を組み合わせた開発環境を構築し、Input Action による入力統合や URP Assets の VR 最適化を行い、実機での安定動作を確認しながら開発を進行。</li>               
+                        <li><strong>制作背景</strong>: VR の没入感を活かした救助アクションゲームを制作する過程で、VR操作設計、物理挙動、環境インタラクションなど、VRゲーム開発に必要な基礎的な技術を習得することを目的として制作。</li>
+                        <li><strong>課題と学び</strong>: VR特有の挙動を自然に感じさせるための操作設計や視点の安定性、Meta Quest の性能に合わせた描画負荷の削減など、VR開発特有の最適化課題に取り組みながら知識を習得。</li>
+                    </ul>
+
+                    <h2>技術詳細</h2>
+                    <p> 
+                        MetaQuest公式SDKとUnity標準の機能を組み合わせ、つかみ動作・移動・視点制御など救助アクションに必要なインタラクションを構築。
+                        InputActionを用いて入力処理を統一し、さまざまな端末でも操作を可能にできる設計にしました。
+                    </p>
+                    <p> 
+                        また、MetaQuestの限られた性能に合わせるため、URPAssetsの最適化や描画不可の調整を行い、VRでも快適に動作する環境を実現。
+                        VR特有の視点安定性や操作の違和感の解消に取り組み、没入感を損なわない操作性と体験品質を実現するための技術検証を中心に進めました。
+                    </p>
+                </div>
+                
+                <div class="project-gallery">
+                    <h2>ギャラリー</h2>
+                    <p>マルチプレイヤーのゲーム画面のスクリーンショットを展示するセクションです。（プレースホルダー画像）</p>
+                    <div class="gallery-grid">
+                        <!-- ギャラリーアイテムにIcon.pngのURLを設定 -->
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/LifetoSave_01.png'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/LifetoSave_02.png'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/LifetoSave_03.png'); background-size: cover; background-position: center;"></div>
+                        <!-- 複製 -->
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/LifetoSave_01.png'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/LifetoSave_02.png'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/LifetoSave_03.png'); background-size: cover; background-position: center;"></div>
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="index.html#projects" class="cta-button">作品一覧に戻る</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Unity Engineer Portfolio</p>
+    </footer>
+
+    <script src="https://kawakami240743.github.io/Portfolio/js/main.js"></script>
+    
+</body>
+
+</html>

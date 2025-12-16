@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite&Panic! - 作品詳細</title>
+    
+    <link rel="stylesheet" href="https://kawakami240743.github.io/Portfolio/css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">KAWAKAMIPORTFOLIO</div>
+        <ul class="nav-links">
+            <li><a href="index.html#hero">ホーム</a></li>
+            <li><a href="index.html#about">私について</a></li>
+            <li><a href="index.html#projects">作品一覧へ戻る</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="project-detail section">
+            <header class="project-header animate-on-scroll">
+                <h1 class="highlight">Bite & Panic!</h1>
+                <p> 自分より小さな魚を食べてスコアを稼ぎ、成長しながら海中を生き延びるアクションゲームです。</p>
+                <div class="tags">
+                    <span>Unity</span><span>C#</span><span>Mobile</span>
+                </div>
+            </header>
+
+            <div class="project-content">
+                <!-- メイン動画埋め込み (IDをVR関連の動画に仮変更) -->
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/ThjKG3NTIlI"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        title="Bite & Panic プロモーション動画">
+                    </iframe>
+                </div>
+
+                <div class="project-description">
+                    <h2>概要と目的</h2>
+                    <p>
+                        本プロジェクトは、スマートフォン向けに制作した3Dアクションゲームです。
+                        プレイヤーは小さな魚を操作し、海中を自由に泳ぎながらより小さな魚を捕食してスコアを稼ぎます。
+                        大きな魚に近づきすぎるとゲームオーバーとなるため、リスク管理と素早い判断が求められます。
+                        スマートフォンでも直感的に遊べるシンプルさと、成長による楽しさを両立したゲーム体験を目的としています。
+                    </p>
+
+                    <h2>主な役割と技術</h2>
+                    <ul>
+                        <li><strong>ゲームプレイプログラミング</strong>: スマートフォン向け3D環境でのタッチ操作、敵AI（追跡・パトロール）、当たり判定、スコアや成長システムなど、ゲームサイクルに関わる主要な機能を実装。</li>              
+                        <li><strong>開発環境</strong>: Unityの3D機能を中心に、タッチ操作対応・実機テスト（Xcode）を行い、スマートフォンでも快適に遊べる操作性と動作を構築。</li>                 
+                        <li><strong>制作背景</strong>: スマートフォン向け3Dアクションの制作を通じて、アニメーション制御、敵挙動、UI設計など、モバイルゲーム開発に必要な基礎的な技術を学ぶことを目的として制作。</li>            
+                        <li><strong>課題と学び</strong>: 3D空間での操作感調整、敵の自然な追跡挙動、Safe Areaを考慮したUIレイアウト、タッチ操作の最適化など、モバイル特有の課題を試行錯誤しながら習得。</li>
+                    </ul>
+
+                    <h2>技術詳細</h2>
+                    <p> 
+                        スマートフォン向け3Dアクションとして、Unity標準の機能を活用しながら移動・当たり判定・捕食処理などのアクション要素を構築。
+                        直感的なキャラクター操作や Animator を用いたアニメーション遷移を制御し、操作感の向上を図りました。
+                    </p>
+                    <p>
+                        敵キャラクターには追跡・パトロールなどの AI 挙動を実装し、3D 空間での自然な動きを再現。
+                        UI は Safe Area を考慮して配置し、異なる画面サイズの端末でも操作しやすいレイアウトを実現しました。
+                    </p>
+                </div>
+                
+                <div class="project-gallery">
+                    <h2>ギャラリー</h2>
+                    <p>開発中のスクリーンショットなどを展示するセクションです。（プレースホルダー画像）</p>
+                    <div class="gallery-grid">
+                        <!-- 【修正】ギャラリーアイテムにIcon.pngのURLを設定 -->
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/Bite&Panic_01.png'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/Bite&Panic_02.png'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/Bite&Panic_03.png'); background-size: cover; background-position: center;"></div>
+                        <!-- 複製 -->
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/Bite&Panic_01.png'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/Bite&Panic_02.png'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-item" style="background-image: url('https://kawakami240743.github.io/Portfolio/Assets/Bite&Panic_03.png'); background-size: cover; background-position: center;"></div>
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="index.html#projects" class="cta-button">作品一覧に戻る</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Unity Engineer Portfolio</p>
+    </footer>
+
+    <script src="https://kawakami240743.github.io/Portfolio/js/main.js"></script>
+    
+</body>
+
+</html>

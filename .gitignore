@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Unity
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/

@@ -1,10 +1,14 @@
 :root {
-    --bg-color: #202020;
-    --surface-color: #383838;
-    --text-color: #C4C4C4;
-    --highlight-color: #4C969C;
-    /* Unity-ish teal/blue */
-    --accent-color: #E0E0E0;
+    --bg-color: #1a1a2e;
+    --bg-color-alt: #16213e;
+    --surface-color: #0f3460;
+    --text-color: #d4d4e0;
+    --highlight-color: #53b8c4;
+    --highlight-glow: rgba(83, 184, 196, 0.3);
+    --highlight-glow-strong: rgba(83, 184, 196, 0.5);
+    --accent-color: #EEEEF6;
+    --gradient-dark: rgba(26, 26, 46, 0.95);
+    --gradient-mid: rgba(15, 52, 96, 0.6);
     --font-main: 'Inter', 'Noto Sans JP', sans-serif;
     --font-code: 'JetBrains Mono', monospace;
 }
@@ -23,7 +27,8 @@ html {
 }
 
 body {
-    background-color: var(--bg-color);
+    background: linear-gradient(180deg, var(--bg-color) 0%, var(--bg-color-alt) 50%, var(--bg-color) 100%);
+    background-attachment: fixed;
     color: var(--text-color);
     font-family: var(--font-main);
     line-height: 1.6;
@@ -47,20 +52,23 @@ ul {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(32, 32, 32, 0.95);
+    background-color: rgba(26, 26, 46, 0.85);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--surface-color);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(83, 184, 196, 0.12);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
     font-family: var(--font-code);
     font-weight: 700;
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
     color: var(--highlight-color);
+    text-shadow: 0 0 10px rgba(83, 184, 196, 0.3);
 }
 
 .nav-links {
@@ -98,10 +106,12 @@ h3 {
     margin-bottom: 1rem;
     /* メインのh1/h2は中央寄せ */
     text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 0 12px rgba(83, 184, 196, 0.15);
 }
 
 h2 {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(83, 184, 196, 0.2);
 }
 
 
@@ -111,20 +121,66 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* 左右のパディングを10%から、モバイルでも安全な5%に修正 */
-    padding: 0 5%; 
+    padding: 0 5%;
     padding-top: 60px;
     text-align: center;
-    /* GitHub Pagesの背景画像URLを使用 */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://kawakami240743.github.io/Portfolio/Assets/BackGround.png');
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-color);
+}
+
+/* ヒーローオーバーレイ */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(26, 26, 46, 0.4), rgba(26, 26, 46, 0.6));
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* スライドショーコンテナ */
+.hero-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+/* 各スライド */
+.hero-slide {
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    opacity: 0;
+    animation: heroSlide 48s linear infinite;
 }
+
+@keyframes heroSlide {
+    0%     { opacity: 0; }
+    2%     { opacity: 1; }
+    6.33%  { opacity: 1; }
+    8.33%  { opacity: 0; }
+    100%   { opacity: 0; }
+}
+
+.hero-slide:nth-child(1)  { animation-delay:  0s; }
+.hero-slide:nth-child(2)  { animation-delay:  4s; }
+.hero-slide:nth-child(3)  { animation-delay:  8s; }
+.hero-slide:nth-child(4)  { animation-delay: 12s; }
+.hero-slide:nth-child(5)  { animation-delay: 16s; }
+.hero-slide:nth-child(6)  { animation-delay: 20s; }
+.hero-slide:nth-child(7)  { animation-delay: 24s; }
+.hero-slide:nth-child(8)  { animation-delay: 28s; }
+.hero-slide:nth-child(9)  { animation-delay: 32s; }
+.hero-slide:nth-child(10) { animation-delay: 36s; }
+.hero-slide:nth-child(11) { animation-delay: 40s; }
+.hero-slide:nth-child(12) { animation-delay: 44s; }
 
 .hero-content {
     max-width: 800px;
-    z-index: 1;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-logo {
@@ -134,7 +190,7 @@ h2 {
     margin-bottom: 2rem;
     border-radius: 50%;
     border: 3px solid var(--highlight-color);
-    box-shadow: 0 0 20px rgba(76, 150, 156, 0.5);
+    box-shadow: 0 0 20px var(--highlight-glow-strong);
     animation: float 6s ease-in-out infinite;
 }
 
@@ -152,15 +208,39 @@ h2 {
     }
 }
 
+@keyframes hero-text-reveal {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .hero-content h1 {
     font-size: 2.8rem;
     line-height: 1.2;
     margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text-bg {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.hero-text-inn {
+    display: inline-block;
+    position: relative;
+    color: var(--accent-color);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transform: translateY(110%);
+    opacity: 0;
+    animation: hero-text-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
 }
 
 .highlight {
     color: var(--highlight-color);
+    text-shadow:
+        0 0 10px rgba(83, 184, 196, 0.4),
+        0 0 30px rgba(83, 184, 196, 0.2);
 }
 
 .typing-effect {
@@ -174,21 +254,48 @@ h2 {
 .cta-button {
     display: inline-block;
     padding: 0.7rem 1.8rem;
-    background-color: var(--highlight-color);
+    background: linear-gradient(135deg, var(--highlight-color), #3a8a9e);
     color: #fff;
     border-radius: 4px;
     font-weight: 600;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(83, 184, 196, 0.2);
+}
+
+.hero-content .cta-button {
+    opacity: 0;
+    transform: translateY(110%);
+    animation: hero-text-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
-    background-color: #3a7a80;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 0 0 30px rgba(83, 184, 196, 0.4);
 }
 
 
 /* About Section */
+#about {
+    position: relative;
+}
+
+#about::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--highlight-color) 50%, transparent 100%);
+    opacity: 0.4;
+}
+
+#about > * {
+    position: relative;
+    z-index: 1;
+}
+
 .about-content {
     font-size: 1rem;
     max-width: 800px;
@@ -214,7 +321,8 @@ h2 {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--surface-color);
-    text-align: center; 
+    text-align: center;
+    text-shadow: 0 0 12px rgba(83, 184, 196, 0.35), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* skills-list */
@@ -224,11 +332,14 @@ h2 {
     font-family: var(--font-code);
     font-size: 1rem;
     color: var(--accent-color);
-    background-color: var(--surface-color);
+    background: rgba(15, 52, 96, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 1.5rem 2rem;
     padding-left: 3rem;
     border-radius: 8px;
-    border: 1px solid var(--highlight-color);
+    border: 1px solid rgba(83, 184, 196, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(83, 184, 196, 0.1);
     
     /* リストボックス自体を中央寄せにする */
     max-width: 600px;
@@ -244,6 +355,15 @@ h2 {
 
 
 /* Projects Section */
+#projects {
+    position: relative;
+}
+
+#projects > * {
+    position: relative;
+    z-index: 1;
+}
+
 /* 【修正】モバイルでは1列、PCでは2列に固定するための修正 */
 .projects-grid {
     display: grid;
@@ -265,18 +385,19 @@ h2 {
 
 
 .project-card {
-    background-color: var(--surface-color);
-    /* 角丸を大きくする */
-    border-radius: 12px; 
+    background: rgba(15, 52, 96, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #444;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(83, 184, 196, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(83, 184, 196, 0.05);
 }
 
 .project-card:hover {
-    transform: translateY(-8px); /* 浮き上がりを強くする */
-    /* シャドウをハイライトカラーで目立たせる */
-    box-shadow: 0 15px 30px rgba(76, 150, 156, 0.4); 
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--highlight-glow);
     border-color: var(--highlight-color);
 }
 
@@ -299,6 +420,7 @@ h2 {
     /* 作品名も中央寄せにする */
     text-align: center;
     margin-bottom: 0.5rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 10px rgba(83, 184, 196, 0.15);
 }
 
 .project-info p {
@@ -318,15 +440,15 @@ h2 {
 }
 
 .tags span {
-    background-color: #222;
+    background: rgba(83, 184, 196, 0.08);
     color: var(--highlight-color);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-size: 0.75rem;
     font-family: var(--font-code);
-    border: 1px solid #444;
-    /* ホバーエフェクトを追加 */
-    transition: background-color 0.2s ease, color 0.2s ease;
+    border: 1px solid rgba(83, 184, 196, 0.25);
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 8px rgba(83, 184, 196, 0.05);
 }
 
 .project-card:hover .tags span {
@@ -339,10 +461,23 @@ h2 {
 footer {
     text-align: center;
     padding: 2rem;
-    background-color: #1a1a1a;
-    color: #666;
+    background: linear-gradient(180deg, var(--bg-color) 0%, #0d1117 100%);
+    color: #8890a0;
     font-size: 0.8rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(83, 184, 196, 0.2);
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--highlight-color), transparent);
+    opacity: 0.5;
 }
 
 /* Animations */
@@ -357,39 +492,89 @@ footer {
     transform: translateY(0);
 }
 
+/* 作品カードはズームインアニメーション */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.project-card-link.animate-on-scroll {
+    transform: none;
+    transition: none;
+}
+
+.project-card-link.animate-on-scroll.visible {
+    animation: zoomIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
 /* Staggered delay for children if needed */
 .delay-100 {
     transition-delay: 0.1s;
+}
+
+.delay-100.project-card-link {
+    transition-delay: 0s;
+    animation-delay: 0.1s;
 }
 
 .delay-200 {
     transition-delay: 0.2s;
 }
 
+.delay-200.project-card-link {
+    transition-delay: 0s;
+    animation-delay: 0.2s;
+}
+
 .delay-300 {
     transition-delay: 0.3s;
+}
+
+.delay-300.project-card-link {
+    transition-delay: 0s;
+    animation-delay: 0.3s;
 }
 
 .delay-400 {
     transition-delay: 0.4s;
 }
 
+.delay-400.project-card-link {
+    transition-delay: 0s;
+    animation-delay: 0.4s;
+}
+
 
 /* --- Project Detail Page Specific Styles --- */
+body:has(.project-detail) {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 30%, #1a1a2e 60%, #0d1117 100%);
+}
+
 .project-detail {
     padding-top: 80px;
     max-width: 1000px;
     margin: 0 auto;
     padding-bottom: 4rem;
     /* h2タイトルを左寄せにするため、text-align: centerを削除 */
-    text-align: left; 
+    text-align: left;
+    position: relative;
 }
 
 /* 【修正】プロジェクトヘッダー内のh1を強調 */
 .project-header h1 {
-    font-size: 3rem; /* h2 (2.5rem)よりも大きく強調 */
+    font-size: 3rem;
     color: var(--highlight-color);
-    margin-bottom: 0.5rem; /* pタグとの間隔を調整 */
+    margin-bottom: 0.5rem;
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(83, 184, 196, 0.35),
+        0 0 50px rgba(83, 184, 196, 0.15);
 }
 
 .project-header p {
@@ -408,20 +593,21 @@ footer {
 .project-description h3 {
     color: var(--accent-color);
     /* 中央寄せを解除し、左寄せを強制 */
-    text-align: left; 
-    
+    text-align: left;
+
     /* マージンの調整: タイトル上の間隔を広げ、下の間隔は境界線のために確保 */
-    margin-top: 3rem; 
+    margin-top: 3rem;
     margin-bottom: 1rem;
-    
+
     /* タイトル下に控えめな区切り線を追加 */
     border-bottom: 2px solid var(--surface-color);
     padding-bottom: 0.5rem;
-    
+
     /* セクションコンテンツの左右パディングを適用 (h2はセクション内にあるため) */
-    max-width: 1000px; 
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 16px rgba(83, 184, 196, 0.15);
 }
 
 .project-description p,
@@ -461,8 +647,8 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid #444;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(83, 184, 196, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(83, 184, 196, 0.05);
 }
 
 .project-gallery {
@@ -497,11 +683,18 @@ footer {
     min-width: 300px;
     width: 300px;
     flex-shrink: 0;
-    
+
     height: 200px;
-    background-color: #333;
+    background-color: #1a1a2e;
     border-radius: 8px;
-    border: 1px solid #444;
+    border: 1px solid rgba(83, 184, 196, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 15px var(--highlight-glow);
+    border-color: rgba(83, 184, 196, 0.4);
 }
 
 .back-link {
@@ -527,5 +720,28 @@ footer {
 .project-card-link:hover .project-card {
     border-color: var(--highlight-color);
     transform: none;
-    /* Reset inner transform to avoid double effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--highlight-glow);
+}
+
+
+/* ============================================
+   モバイル対応
+   ============================================ */
+@media (max-width: 768px) {
+    /* iOS Safari で background-attachment: fixed が効かないため scroll に変更 */
+    body {
+        background-attachment: scroll;
+    }
+
+    /* スライドの縦長画面での表示を調整 */
+    .hero-slide {
+        background-position: center center;
+        background-size: cover;
+    }
+
+    /* ヒーローセクションの高さをモバイルブラウザのアドレスバーに対応 */
+    .hero-section {
+        min-height: 100svh;
+        height: auto;
+    }
 }

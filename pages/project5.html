@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>きこりちゃん - 作品詳細</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">KAWAKAMIPORTFOLIO</div>
+        <ul class="nav-links">
+            <li><a href="../index.html#hero">ホーム</a></li>
+            <li><a href="../index.html#about">私について</a></li>
+            <li><a href="../index.html#projects">作品</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="project-detail section">
+            <header class="project-header animate-on-scroll">
+                <h1 class="highlight">きこりちゃん</h1>
+                <p>より多くの木を切って世界中の人とスコアを競うゲーム</p>
+                <div class="tags">
+                    <span>Unity</span><span>C#</span><span>2D</span>
+                </div>
+            </header>
+
+            <div class="project-content">
+                <!-- メイン動画埋め込み -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/D8BrPmCxKjA" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen title="木こりちゃん プレイ動画">
+                    </iframe>
+                </div>
+
+                <div class="project-description">
+                    <h2>概要と目的</h2>
+                    <p>
+                        本プロジェクトは、「指一本でもプレイできる」をコンセプトにしたハイパーカジュアルゲームです。<br>
+                        プレイヤーは左右矢印キーのみを使い、主人公となる<strong>「きこりちゃん」</strong>を操作してより多くの木を切りスコアを競います。<br>
+                        また本ゲームはスマートフォンにも対応しており、感覚で操作できるようタップ操作を採用しています。
+                    </p>
+
+                    <h2>主な役割と技術</h2>
+                    <ul>
+                        <li>
+                            <h4>ゲームプレイプログラミング</h4>
+                            Unity C#を用いてゲーム内ロジックをすべて担当。自身が後から設計を拡張しやすいように各機能を分割しながら開発を進めた。
+                        </li>
+                        <li>
+                            <h4>イラスト</h4>
+                            Asepriteを用いてゲーム内のイラストをすべて担当。プレイする人が見やすく、かつ印象に残るよう各イラストの配置や色遣いに気を付けながら制作を行った。
+                        </li>
+                        <li>
+                            <h4>UI</h4>
+                            Aseprite,Adobe Illustratorを用いてゲーム内UIをすべて担当。シンプルかつ見やすいデザインを意識して制作を行った。
+                        </li>
+                        <li>
+                            <h4>開発環境</h4>
+                            Unity6.0.59f2 <br>
+                            VSCode <br>
+                            Git <br>
+                            Aseprite <br>
+                            Adobe Illusrator
+                        </li>
+                        <li>
+                            <h4>政策背景</h4>
+                            指一本でもできるゲームをコンセプトに一つの作品を作ろうと思い作成。
+                        </li>
+                        <li>
+                            <h4>課題と学び</h4>
+                            作成したイラストをUnityに持っていく際にサイズを調節することが最大の課題だった。ここはUnityの機能であるPixel Perfect
+                            Cameraを利用することでSprite側を拡大せず、Unityに自動補完させることでイラストを崩さずに持ってくることが可能になった。<br>
+                            また、ランキング機能においてはサーバを用意することが難しかったため、unityroomを利用し実装を行った。
+                        </li>
+                    </ul>
+
+                    <h2>技術詳細</h2>
+                    <ui>
+                        <li>Object Poolingを導入し、過度に行われるインスタンスの生成、破棄の処理を抑制。GC発生を削減し、処理負荷の最適化を行った。</li>
+                        <li>Unityの標準機能であるPixel Perfect Cameraを利用しSpriteを破綻させずに処理を可能にした。</li>
+                        <li>Aseprite, Illustratorなどを利用しUIやイラストなどの作成を行った。</li>
+                    </ui>
+                </div>
+
+                <div class="project-gallery">
+                    <h2>ギャラリー</h2>
+                    <p>マルチプレイヤーのゲーム画面のスクリーンショットを展示するセクションです。（プレースホルダー画像）</p>
+                    <div class="gallery-grid">
+                        <!-- ギャラリーアイテムにIcon.pngのURLを設定 -->
+                        <div class="gallery-item"
+                            style="background-image: url('../Assets/LifetoSave/LifetoSave_01.png'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="gallery-item"
+                            style="background-image: url('../Assets/LifetoSave/LifetoSave_02.png'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="gallery-item"
+                            style="background-image: url('../Assets/LifetoSave/LifetoSave_03.png'); background-size: cover; background-position: center;">
+                        </div>
+                        <!-- 複製 -->
+                        <div class="gallery-item"
+                            style="background-image: url('../Assets/LifetoSave/LifetoSave_01.png'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="gallery-item"
+                            style="background-image: url('../Assets/LifetoSave/LifetoSave_02.png'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="gallery-item"
+                            style="background-image: url('../Assets/LifetoSave/LifetoSave_03.png'); background-size: cover; background-position: center;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="back-link">
+                    <a href="../index.html#projects" class="cta-button">作品一覧に戻る</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Unity Engineer Portfolio</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>

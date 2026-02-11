@@ -23,13 +23,26 @@
             <li><a href="#hero">ホーム</a></li>
             <li><a href="#about">私について</a></li>
             <li><a href="#projects">作品</a></li>
-            <!-- コンタクトのナビゲーションリンクは削除済み -->
         </ul>
     </nav>
 
     <main>
         <!-- ヒーローセクション -->
         <section id="hero" class="hero-section">
+            <div class="hero-slideshow">
+                <div class="hero-slide" style="background-image: url(./Assets/DestroGear/DestroGear_01.png);"></div>
+                <div class="hero-slide" style="background-image: url('./Assets/Bite&Panic/Bite&Panic_01.png');"></div>
+                <div class="hero-slide" style="background-image: url(./Assets/LifetoSave/LifetoSave_01.png);"></div>
+                <div class="hero-slide" style="background-image: url(./Assets/2DAction/2DAction_01.png);"></div>
+                <div class="hero-slide" style="background-image: url(./Assets/DestroGear/DestroGear_02.png);"></div>
+                <div class="hero-slide" style="background-image: url('./Assets/Bite&Panic/Bite&Panic_02.png');"></div>
+                <div class="hero-slide" style="background-image: url(./Assets/LifetoSave/LifetoSave_02.png);"></div>
+                <div class="hero-slide" style="background-image: url(./Assets/2DAction/2DAction_02.png);"></div>
+                <div class="hero-slide" style="background-image: url(./Assets/DestroGear/DestroGear_03.png);"></div>
+                <div class="hero-slide" style="background-image: url('./Assets/Bite&Panic/Bite&Panic_03.png');"></div>
+                <div class="hero-slide" style="background-image: url(./Assets/LifetoSave/LifetoSave_03.png);"></div>
+                <div class="hero-slide" style="background-image: url(./Assets/2DAction/2DAction_03.png);"></div>
+            </div>
             <div class="hero-content">
                 <img
                     src="./Assets/Icon.png"
@@ -37,9 +50,11 @@
                     class="hero-logo"
                     onerror="this.onerror=null; this.src='https://placehold.co/150x150/4C969C/ffffff?text=Icon+Error';"
                 >
-                <h1><span class="highlight">Unity</span>で世界を創る</h1>
-                <!-- ★注意: js/main.jsの内容に合わせて、このテキストはJSによって上書きされます -->
-                <p class="typing-effect">ゲーム開発者</p>
+                <h1>
+                    <span class="hero-text-bg">
+                        <span class="hero-text-inn"><span class="highlight">Unity</span>で世界を創る</span>
+                    </span>
+                </h1>
                 <a href="#projects" class="cta-button">作品を見る</a>
             </div>
         </section>
@@ -51,11 +66,12 @@
                 <p>Unity歴2年のゲーム開発者です。主にゲームプレイプログラミングを得意としています。</p>
                 <p>このポートフォリオサイトでは、これまでに制作した作品を紹介しています。プレイヤーに楽しんでもらえるゲーム作りを目指して日々学習しています。</p>
                 
-                <h3 class="skills-title">得意な技術スタック</h3>
+                <h3 class="skills-title">私が得意としていること</h3>
                 <ul class="skills-list">
                     <li>C#/Unityによるゲームプレイ実装</li>
                     <li>Unityの公式機能を利用したゲーム機能実装</li>
                     <li>モバイル/VRプラットフォーム向け最適化</li>
+                    <li>Asepriteを利用した2DSpriteの作成</li>
                     <li>AIを利用した作業の効率化</li>
                 </ul>
             </div>
@@ -63,8 +79,9 @@
 
         <!-- 作品セクション -->
         <section id="projects" class="section">
-            <h2 class="animate-on-scroll">作品</h2>
+            <h2 class="animate-on-scroll">作品集</h2>
             <div class="projects-grid">
+                
                 <a href="./pages/project3.html" class="project-card-link animate-on-scroll delay-300">
                     <div class="project-card">
                         <div class="project-main-image" style="background-image: url(./Assets/DestroGear/DestroGear_Title.png);"></div>
@@ -111,7 +128,7 @@
 
     <!-- フッター -->
     <footer>
-        <p>&copy; 2025 Unity Engineer Portfolio</p>
+        <p>&copy; KAWAKAMIPORTFOLIO</p>
     </footer>
 
     <script src="./js/main.js"></script>

@@ -656,27 +656,22 @@ body:has(.project-detail) {
     overflow: hidden;
 }
 
-/* JS自動スクロール用設定 */
+/* CSS無限スクロール設定 */
 .gallery-grid {
-    display: flex; 
+    display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto; 
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    
-    width: auto; 
-    animation: none; 
-    
     gap: 1.5rem;
     margin-top: 1.5rem;
-    
-    /* スクロールバーを非表示 */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    animation: gallery-scroll 30s linear infinite;
 }
 
-.gallery-grid::-webkit-scrollbar {
-    display: none;
+.gallery-grid:hover {
+    animation-play-state: paused;
+}
+
+@keyframes gallery-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-300px * 3 - 1.5rem * 3)); }
 }
 
 .gallery-item {
@@ -690,6 +685,57 @@ body:has(.project-detail) {
     border: 1px solid rgba(83, 184, 196, 0.15);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* ライトボックス */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.open .lightbox-img {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
 }
 
 .gallery-item:hover {

@@ -743,14 +743,26 @@ body:has(.project-detail) {
     border-color: rgba(83, 184, 196, 0.4);
 }
 
-.play-link {
-    margin-top: 3rem;
+.external-links {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+}
+
+.play-link,
+.github-link {
     text-align: center;
+}
+
+.play-link {
+    margin-top: 0;
 }
 
 .play-label {
     font-size: 1rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
     color: var(--text-secondary, #aaa);
 }
 
@@ -766,6 +778,24 @@ body:has(.project-detail) {
 .play-icon:hover {
     transform: scale(1.08);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.github-link {
+    margin-top: 0;
+}
+
+.github-icon {
+    width: 64px;
+    height: 64px;
+    fill: currentColor;
+    color: var(--text-primary, #fff);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+}
+
+.github-icon:hover {
+    transform: scale(1.15);
+    opacity: 0.75;
 }
 
 .back-link {
